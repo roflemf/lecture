@@ -1,0 +1,13 @@
+이클립스에서 자동으로 생성해 주는 메소드에는 아래의 주석이 포함되어 있습니다. 
+
+// TODO Auto-generated method stub 
+
+위의 주석을 제거하는 방법은 다음과 같습니다. 
+
+* 이클립스의 Window -> Preferences 메뉴를 클릭한다.
+
+* Java -> Code Style -> Code Templates 를 선택한다.
+
+* Code -> Method body 를 선택한다.
+
+* Edit 버튼을 클릭한 후, "// ${todo}" 로 시작하는 라인을 제거한다.

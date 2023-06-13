@@ -1,0 +1,329 @@
+*메이븐 프로젝트 개발환경 순서
+
+1.sts.exe 실행하면 워크스페이스 경로를 project_work로 한다. 새로운 
+워크스페이스 경로를 만들면 STS(이클립스) 워크스페이스 환경이 초기화
+된다.
+
+2.Pivotal tc Server Developer Edition v3.0-config sts 에 있는 기본
+웹서버가 설치된다. 이 서버를 STS로 부터 삭제한다. 서버를 삭제할때
+꼭 Delete project contents on disk를 체크하고 삭제하세요. 이렇게
+삭제해야 STS뿐만 아니라 컴퓨터 워크스페이스에서도 함께 삭제된다.
+
+3.TOMCAT 서버를 http://tomcat.apache.org 사이트로 부터 코어 집
+압축파일을 다운받는다. 다운받는 경로는 워크스페이스 경로로 
+한다.물론 다른 경로로 다운받아도 된다.
+다운받은 압축파일을 단축메뉴에서 여기에 압축풀기 한다. 그러면
+apache-tomcat-9.0.62 톰캣 홈 폴더가 만들어 진다.
+
+4. 톰캣 서버를 STS에 올리는 순서
+   가. STS Servers-No servers are available.Click this link to
+   create a new server를 클릭
+   나. New Server에서 Apache-Tomcat v9.0 Server선택 Next클릭
+   다. Tomcat server-Tomcat installation directory-Browser 버튼을
+   클릭해서 톰캣 홈 폴더를 선택한다.-next 버튼 클릭- finish 한다.
+   톰캣 서버가 STS에 올라온다.
+
+5. STS Open Perspective에서 Java,Java EE,Database Development
+메뉴 꺼내기
+   가. Window-Open Perspective-Other...를 클릭해서 
+   Open Perspective 창을 띄우고 각각의 메뉴를 선택한다.
+
+6. Java EE, Java 에서 탐색기 폴더구조가 동일한 메뉴를 STS에서
+보는 방법
+   가. Window-Show View-Navigator 메뉴를 선택
+
+7. STS에서 Database Development 메뉴를 통해서 오라클 디비 연결법
+   가. Database Development를 선택
+
+   나. Data Source Explorer-Database Connections-오른쪽 단축메뉴
+   에서 -New...선택
+
+   다. New Connection Profile창에서 -Oracle선택-Name입력창에
+   Oracle 18c 입력-Next클릭
+
+   라. Drivers-New Driver Definition 아이콘 클릭-Name/Type-
+   Oracle Thin Driver Oracle 11선택-Jar List탭 선택-Driver files-
+   ojdbc14.jar를 선택-Edit JAR/Zip...버튼 클릭-
+   C:\app\mun51\product\21c\dbhomeXE\jdbc\lib 오라클
+   설치 경로에서-ojdbc8.jar를 선택-열기-OK클릭-SID에서 db를
+   데이터베이스 이름 xe로 바꿈-Host 입력박스 server를 
+   127.0.0.1(localhost=>내 자신 컴퓨터, 또는 해당 컴퓨터 ip주소)
+   로 바꿈-user name(오라클 접속 사용자)-Password
+   (오라클 접속 비번)-Save password 체크박스 체크-
+   Test Connection버튼클릭(STS에서 오라클 디비연결 여부 확인)-
+   Ping succeeded! 창이 띄워지면 성공-OK클릭-Next -Finish한다.
+
+8. STS 톰캣 server.xml 포트번호설정및 xml 줄번호,글자색 설정법
+   가.XML줄번호(Line Number) 나오게 하기-Window-Preferences-
+   General-Editors-Text Editors-Show line numbers 체크박스 선택
+
+   나.xml글자색 설정-Window-Preferences-XML-XML Files-Editor-
+   Syntax Coloring-Sample text에서 xml선택-Tag Names선택-
+   Foreground(글자색선택)-글자색을 파랑-bold체크박스 선택
+
+   다.Sample text에서 version선택-Attribute Names(속성)-
+   Foreground-글자색을 빨강-Bold체크박스 선택
+
+   라.Sample text에서 1.0선택-Attribute Values(속성값)-
+   Italic체크박스 해제하고-Bold 체크박스 선택-ok버튼 클릭
+
+   마.server.xml에서 포트번호 변경
+      20번 줄
+      <Server port="8005" shutdown="SHUTDOWN"> 포트번호 수정.
+
+      65번 줄
+         <Connector connectionTimeout="20000" 
+	 port="8080" protocol="HTTP/1.1" redirectPort="8443"/>
+	 Http포트번호 8080에서 다른 포트번호로 수정
+ 
+     85번 줄
+       <Connector port="8009" protocol="AJP/1.3" 
+       redirectPort="8443"/>
+       Connector port 번호를 수정
+     
+
+9. STS에서 글꼴/글꼴 스타일/글자크기 설정법
+   가.Window-Preferences-General-Appearance-Colors and Font-
+   Basic-Text Font-Edit...버튼클릭-글꼴/글꼴 스타일/크기 설정하고
+   확인을 클릭한다.
+
+10.자바 클래스,프로퍼티 파일 언어코딩 타입 설정
+   가.Window-Preferences-General-Workspace-Text file encoding-
+   other 라디오 버튼선택-콤보박스에서 UTF-8을 선택
+
+11. Maven(메이븐) 프로젝트 만들기 순서
+    가.STS Java-Navigator-단축메뉴-Maven Project를 선택-
+    New Maven project창 Next-Select an Archetype 창에 
+    Artifact Id를 maven-archetype-webapp를 선택-Next선택
+    나.Group Id 입력창에서 영문자로 home입력(아무거나 입력)
+    다.Atrifact Id는 메이븐 프로젝트 명:project(중요)
+    Package 입력창의 home.project는 지운다.
+    주의할것은 Maven프로젝트를 처음 만들때 반드시 인터넷이
+    연결되어 있어야 한다.이유는 외부 인터넷으로 부터 메이븐
+    빌딩과정을 다운로드 받아야 한다.
+
+12. 메이븐 프로젝트 만들면 JDK 1.5로 컴파일 된다. 이
+부분 수정하기
+   가.먼저 자기 자신의 컴퓨터에서 설치된 JDK 버전을 확인
+   -STS Java-Package Explorer-JRE System Library에서 확인
+   나.JRE System Library-단축메뉴에서-Properties-JRE System
+   Libreay-Workspace default JRE(jdk1.7.0_60) 라디오 버튼을
+   선택해서 JDK버전을 수정
+   다.메이븐 project  단축메뉴-Properties-Project Facets-
+Java -콤보박스 목록에서 1.5->1.7 수정하고 OK버튼을 클릭
+
+13. 메이븐 프로젝트에서 톰캣 lib 라이브러리 임포트 하는법
+  가.메이븐 프로젝트 단축메뉴-Properties-Java Build Path-
+  Libraries 탭 선택-Add Library-Server Runtime-Next-Apache
+  Tomcat v7.0-Finish 버튼 클릭-OK 버튼 클릭
+
+  나. 위의 라이브러리를 임포트 해야 하는 경우는 간혹 해당 프로젝트의 jsp 또는 서블릿
+  자바에서 톰캣홈-lib 폴더에 있는 servlet-api.jar 라이브러리 파일을 못읽어와서
+  에러가 발생하는 경우가 종종 발생한다. 그런 경우에 위의 메뉴를 사용한다. 왜냐하면 바로
+  이 라이브러리에 있는 서블릿을 사용하기 때문이다.
+
+14. 해당 프로젝트에서 jdk 라이브러리를 못 읽어와 자바 클래스에서 에러가 발생하는 경우
+  가. 각 프로젝트 단축메뉴-Properties-Java Build Path-
+  Libraries 탭 선택-Add Library- JRE System Library -
+  Next-Finish-OK 하면 된다.
+
+15.메이븐 project-src-main-webapp-WEB-INF-lib 폴더를
+만든다.
+
+16.메이븐 프로젝트 폴더구조 설명 
+    가.src/main/java: 패키지 이하 원본 *.java 파일이 들어간다.
+    나.src/main/resources :패키지 이하 mybatis *.xml파일이 들어간다.
+    다.src/main/webapp: 폴더,jsp(뷰페이지)
+    ,*.html,*.css,*.js,이미지
+    파일(*.gif,*.jpg,*.png)이 들어간다.
+    라.src/main/java 와 src/main/resources 경로 파일은 컴파일 되어져서
+    target/classes 경로로 들어간다.
+    마.라이브러리 관리는 pom.xml에서 한다.
+
+17.메이븐 프로젝트 src/main/webapp/WEB-INF/web.xml의 배포서술자
+수정하기.
+   가.먼저 다이나믹 웹프로젝트를 만든다.
+   web.xml 내용을 복사해서 src/main/webapp/WEB-INF/web.xml 내용에
+   붙여넣기
+   나.web.xml의 display-name 프로젝트명을 메이븐 프로젝트명으로
+   수정한다.
+
+18. src/main/webapp/index.jsp는 지운다.
+
+19. STS에서 구글 크롬 웹브라우저를 기본으로 설정하는 법
+    가.STS Window-Preferences-General-Web Browser-New...버튼 클릭
+    -Add External Web Browser 창에서-Name 입력창에 chrome 입력
+    -Location 에서 Browse...버튼 클릭-
+    C:\Program Files\Google\Chrome\Application-chrome 응용프로그램
+    을 선택-chrome.exe가 입력-OK버튼 클릭-Web Browser에서 
+    chrome체크박스 선택-OK버튼 클릭
+
+    나.STS Java EE-Window-Web Browser-chrome를 선택
+
+20. jsp 언어코딩 ,글자색, 템플릿 설정법
+   가. Window-Preferences-Web-JSP Files-Encoding-ISO 10646/
+   Unicode(UTF-8) 선택:jsp utf-8 언어코딩 타입 설정부분.
+
+   나. jsp글자색 설정-Window-Preferences-WEB-JSP Files-
+   Editor-Syntax Coloring-Sample text page선택-Tag Names-Foregrou
+   nd-글자색 파랑색설정-Bold 체크
+
+   다. Sample text language 선택-Attribute Names-Foreground-
+   빨강색-Bold체크
+
+   라. Sample text java를 선택-Attribute Values선택-Italic 체크
+   해제 하시고,Bold 체크박스를 선택
+
+   마.jsp 템플릿 설정-Window-Preferences-Web-JSP Files-
+   Editor-Templates-New JSP File(html)-Preview에서 jsp 내용을
+   전체 복사-New...버튼을 클릭-New Template-Name입력창에
+   new jsp(html5)-Context콤보박스 목록에서 New JSP선택-
+   Pattern 붙여넣기 하시고 
+
+<%@ page contentType="text/html; charset=${encoding}"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="${encoding}">
+<title> </title>
+</head>
+<body>
+
+</body>
+</html>
+
+위 내용처럼 수정한다. OK 버튼 클릭한다.
+
+21. 톰캣 서버 server.xml의 Host사이에 project메이븐 프로젝트를
+Conext paht로 등록하기
+  가.src/main/webapp 단축메뉴에서 New-Other...-Wizpars 입력창
+  에서 jsp라고 입력-JSP File선택-NEXT클릭-File name을 입력-
+  Next클릭-Template-new jsp(html5)목록을 선택-Finish버튼을 클릭
+
+  나.Run on Server로 구글 크롬으로  실행하면
+  server.xml Host사이에 Context path로 등록된다.
+
+22.HTML 태그 언어코딩타입/글자색/템플릿 설정
+  가. STS Window-Preferences-Web-HTML Files-Encoding 콤보
+  박스 목록에서 ISO 10646/Unicode(UTF-8) 선택
+
+  나. HTML 글자색 -Window-Preferences-Web-HTML Files-Editor-
+  Syntax Coloring-Sample text-html선택-DOCTYPE Name선택-
+  Foreground(글자색)-파랑색-Bold체크
+
+  다. Sample text-html-Tag Names-Foregound-파랑색선택-Bold체크
+      Sample text-content-Attribute Names-Foregound-빨강색 선택-
+      Bold체크
+      Sample text-text/html선택-Attribute Values선택-
+      Italic 체크 해제하고-Bold선택
+
+  라. Html 탬플릿 설정-Windows-Preferences-Web-Html Files-
+  Editor-Templates-New HTML File(5)-Edit-Edit Template창에서-
+  Pattern 입력폼에서 title태그 제목 Insert title here를 지우고,
+  body태그의 ${cursor}를 지우고 -ok버튼을 클릭하세요.
+
+23. css 언어코딩 타입/글자색 설정
+ 가.STS Window-Preferences-Web-CSS Files-Encoding-ISO 10646/
+ Unicode(UTF-8)선택
+
+ 나. CSS 글자색 STS-Window-Preferences-Web-CSS Files-Editor-
+ Syntax Coloring선택-Sample text 에서 url선택-URI-Italic체크
+ 해제하고-Bold체크.
+    Sample text에서 BODY선택-Type Selector선택-Foreground-
+    파랑색 선택.
+    Sample text에서 color선택-Property Name선택-Foreground-
+    빨강색 선택-Bold체크.
+    Sample text에서 black선택-Property value선택-Italic선택해제-
+    Bold선택
+    Sample text에서 #content선택-Id Selector-Italic선택 해제-
+    Bold선택
+    Sample text에서 .links 선택-Class Selector-Italic선택 해제-
+    Bold 체크
+
+24. java 클래스 글자색 지정
+  가.STS-Windows-Preferences-Java-Editor-Syntax Coloring-
+  Element-Java-Classes-Enable체크-글자색을 빨강색으로 설정
+  -Bold체크.
+
+  나.STS-Windows-Preferences-Java-Editor-Syntax Coloring-
+  Element-Keywords excluding 'return'-color 파랑색설정.-
+  ok클릭
+
+25. javascript 글자색 설정법
+  가.STS-Windows-Preferences-JavaScript-Editor-Syntax Coloring-
+  Element-JavaScript-Functions-Enable체크-Color-빨강색선택-
+  Bold를 체크.
+  버전업된 이클립스에서는 Windows-Preferences-Web-HTML Files-
+  Client-side JavaScript-Editor-Syntax Coloring-Element-JavaScript-
+  Functions-Enable체크-Color-빨강색선택-
+  Bold를 체크.
+
+  Windows-Preferences-Web-HTML Files-
+  Client-side JavaScript-Editor-Syntax Coloring-Element-JavaScript-
+  Keywords excluding 'return'-Color-파랑색-Apply-Apply and Close를 선택
+
+  나.STS-Windows-Preferences-JavaScript-Editor-Syntax Coloring-
+  Element-JavaScript-Keywords excluding 'return'-Color-파랑색-
+  ok를 선택
+
+26. project 메이븐 프로젝트에 오라클 jdbc라이브러리 설정
+  가.윈도우 탐색기를 실행-C:\oraclexe\app\oracle\product\
+  10.2.0\server\jdbc\lib-ojdbc14.jar를 복사-src/main/webapp/WEB-INF/
+  lib에 붙여넣기
+
+27. 스프링 +mybatis 라이브러리 설정
+  가.project메이븐 -pom.xml을 연다.
+  나.구글 크롬에서 www.google.co.kr로 접속한다.
+  다.구글검색폼에서 spring-webmvc maven으로 검색한다.
+  spring-webmvc는 artifactId이다. 즉 artifactId maven검색한다.
+     
+   웹에서
+   <dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-webmvc</artifactId>
+	<version>4.1.6.RELEASE</version>
+  </dependency>
+ 검색된다. 이것을 pom.xml의   <dependencies> </dependencies>
+ 사이에 붙여넣기 하면 된다. 나머지도 동일방법에 의해서 하면된다.
+ 라.인터넷이 연결된 상태에서 다운받아 지면서 빌딩이 된다.
+ 마.STS-Java-Package Explorer-Maven Dependencies-라이브러리가
+ 다운받아져 있다.
+ 
+28.메이븐 프로젝트가 톰캣서버에 의해서 톰캣프로젝트로 바뀌는 것
+ 가.윈도우 탐색기에서 워크스페이스 경로-
+ C:\project_work\.metadata\.plugins\
+ org.eclipse.wst.server.core\tmp0\wtpwebapps로 이동-프로젝트명-
+ WEB-INF/lib폴더에 가면 pom.xml에서 추가한 라이브러리를 확인 가능
+ 하다.
+ 나.C:\project_work\.metadata\.plugins\
+ org.eclipse.wst.server.core\tmp0\wtpwebapps에서 메이븐 프로젝트가
+ 톰캣 프로젝트로 바뀐것을 확인 가능하다.
+
+ 29. src/main/webapp/WEB-INF/web.xml 환경설정
+   가.스프링 디스패쳐 서블릿 설정.
+   나.method=post방식으로 넘어오는 한글 자료를 안깨지게 xml설정
+   다.mybatis xml설정하는 applicationContext.xml파일로드되게 설정.
+
+30. java언어에서 코드 입력시 자동으로 {} 중괄호가 안닫힐 때 해결법: Window - Preferences - Java - Editor - Typing - Automatically close - 5개의 체크박스를 모두 체크하면 자동으로 {}중괄
+호가 닫히고, 체크 해제하면 자동으로 중괄호가 안 닫힌다.
+
+31. javascript에서 코드 입력시 자동으로 {} 중괄호가 안닫힐 때 해결법 : Window - Preferences - Web - HTML Files - Client-side JavaScript - Editor -  Typing - Automatically close - 
+5개의 체크박스를 모두 체크하면 자동으로 {}중괄호가 닫히고, 체크 해제하면 자동으로 중괄호가 안 닫힌다.
+
+
+
+
+
+
+
+
+  
+
+
+
+
+    
+
+
+
+

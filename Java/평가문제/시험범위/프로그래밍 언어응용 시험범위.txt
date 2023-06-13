@@ -1,0 +1,56 @@
+1분문제) 다음 자바소스에서 switch ~ case문을  if else if 다중조건문과 ||(논리합) 연산, 그리고 ==(같다) 연산을 활용한 코드로 변경.
+소스예) 
+import java.util.Scanner;
+
+public class Ex12_01 {
+	public static void main(String[] args) {
+
+		int month = 0;
+		
+		System.out.print("현재 월을 입력>>");
+		
+		Scanner scan=new Scanner(System.in);
+		month=Integer.parseInt(scan.nextLine());
+		
+if(month==3 || month==4 || month==5) "봄입니다."
+
+		switch(month) {
+		    case 3: 
+		    case 4: 
+		    case 5: 
+		    	System.out.println("현재는 봄"); break;
+		    case 6: case 7: case 8:
+		    	System.out.println("현재는 여름"); break;
+		    case 9: case 10: case 11:
+		    	System.out.println("현재는 가을"); break;
+		    default: System.out.println("현재는 겨울");
+		}
+	}
+}
+
+배점 : 25점
+
+2번문제) for반복문,if조건문, %나머지 연산을 이용해서 1부터 10까지의 정수 중에서 홀수, 짝수의 총합을 각각 구하는 java 코드를 작성
+public class Ex12_02 {
+	public static void main(String[] args) {
+        int i;
+        
+        //코드작성
+
+
+   }
+}
+
+배점 : 25점
+
+3번 문제)  자바 기본 자료형  
+배점: 10점
+
+4번 문제) 전달인자 개수가 다른 메서드가 오버로딩 된 경우에는 그 개수만큼 메서드를 정의하면 비효율적. 이것을 자바 5버전에서 
+가변인자 문법을 추가해서 메서드를 한번만 정의해도 처리. 이 가변인자 문법을 추가한 메서드를 작성.
+
+배점: 30점
+
+5번문제)  메서드 오버로딩
+배점 : 10점
+
