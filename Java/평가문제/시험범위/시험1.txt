@@ -1,0 +1,74 @@
+1. 
+import java.util.Scanner;
+
+public class Ex12_01 {
+public static void main(String[] args) {
+
+int month = 0;
+
+System.out.print("현재 월을 입력>>");
+
+Scanner scan=new Scanner(System.in);
+month=Integer.parseInt(scan.nextLine());
+
+if(month==3 || month==4 || month==5) {
+	System.out.println("현재는 봄");
+}else if(month==6 || month==7 || month==8) {
+	System.out.println("현재는 여름");
+}else if(month==9 || month==10 || month==11) {
+	System.out.println("현재는 가을");
+}else {
+	System.out.println("현재는 겨울");
+}
+}
+}
+===========================
+2. 
+public class Ex12_02 {
+    public static void main(String[] args) {
+        int i;
+       
+        //코드작성
+int evenR=0;
+int oddR=0;
+
+for(i=1; i<=10; i++) {
+	if(i%2==0) {
+		oddR += i;
+	} else {
+		evenR += i;
+	}
+}
+System.out.println(oddR); // 2+4+6+8+10
+System.out.println(evenR); // 1+3+5+7+9 
+}
+}
+===========================
+3.
+byte, short, char, int, long
+===========================
+4.
+public class Ex12_04 {
+    //코드 시작
+	public void prn(int ...arr) {
+		int result=0;
+		for(int i : arr) {
+			result += i;
+		}
+		System.out.println("전달된 인자의 총 합: " + result);
+	}
+
+  public static void main(String[] args) {
+
+        Ex12_04 ex=new Ex12_04();
+        ex.prn(10,20,30);
+        ex.prn(40,50);
+        ex.prn(60);
+    }
+}
+===========================
+5.
+1. 메서드의 전달인자 개수를 다르게 함.
+2. 메서드의 전달인자 타입을 다르게 함.
+3. 메서드의 전달인자 순서를 다르게 함.
+===========================
