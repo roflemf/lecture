@@ -1,0 +1,26 @@
+[Oracle 18c] 오라클 유저 system, sys 암호 변경
+
+C:\>sqlplus "/as sysdba"
+
+SQL*Plus: Release 11.1.0.6.0 - Production on 토 12월 4 22:24:13 2010
+
+Copyright (c) 1982, 2007, Oracle.  All rights reserved.
+
+다음에 접속됨:
+Oracle Database 11g Enterprise Edition Release 11.1.0.6.0 - Production
+With the Partitioning, OLAP, Data Mining and Real Application Testing options
+
+SQL> SHOW USER
+USER은 "SYS"입니다
+SQL> ALTER USER SYS IDENTIFIED BY 원하는 암호; --굳이 할 필요 없다.
+
+사용자가 변경되었습니다.
+
+SQL> ALTER USER SYSTEM IDENTIFIED BY 원하는 암호;
+
+123456;
+
+사용자가 변경되었습니다.
+
+SQL> SELECT USERNAME, PASSWORD FROM DBA_USERS; --굳이 할 필요 없다.
+
