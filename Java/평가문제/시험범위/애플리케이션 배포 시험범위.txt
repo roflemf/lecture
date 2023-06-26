@@ -1,0 +1,64 @@
+1번 문제) 다음의 자바소스를 보시고 코드에서 잘못 사용된 타입 때문에 발생되는 문제점을 제거하기 위해 무엇을 추가하면 컴파일시 더 강한 타입체크를 하고 
+불필요한 무엇을 할 필요가 없기 때문에 프로그램 성능이 향상. 추가하고 제거하고 변경할 자바코드를 작성.
+자바소스)
+public class Ex2_1 {
+	public static void main(String[] args) {
+         List nameList=new ArrayList();
+         nameList.add("seoul");
+         nameList.add("busan");
+
+         for(Object obj:nameList){
+          String cityName=(String)obj;
+          System.out.println(cityName.toUpperCase());
+         }
+   }
+}
+
+
+배점 : 25점
+
+2번 문제) 다음 자바 코드에서 발생된 예외오류를 처리할 수 있는 코드로 Exception 예외 부모 클래스를 상속받아서 사용자 정의 예외 클래스를 정의. 
+그래서 예외 에러 메시지로 ‘양수가 아닙니다!’가 출력되게 만들어 봄. 추가 코드를  완성.
+자바 소스)
+//사용자 정의 예외 클래스 코드작성
+
+
+public class Ex2_2{
+    public static void main(String[] args){
+     try{
+       int a=-10;
+
+       if (a<0)｛
+　　　　　　throw new UserException("양수가 아닙니다!“);
+       }
+    } catch(UserException e){
+     //예외 에러 메시지 출력 코드작성
+  
+   }
+}
+}
+
+배점 : 35점
+
+3번 문제)  7주차 요점정리 자바의 예외 처리에서 한 문제 나옴.
+배점: 10점
+
+4번 문제) 자바 최초작성된 원시언어는 javac 컴파일 명령어에 의해서 다음과 같이 javac Ex3_1.java로 컴파일.
+그러면 Ex3_1.class의 바이트 코드 클래스 파일이 만들어짐. 이 클래스파일이 java명령어에 의해서 런타임 실행시 예외오류가 발생.
+ 다음 코드에서 발생된 예외오류를 처리할 수 있는 코드를  완성.
+자바소스)
+  public class Ex3_1 {
+	public static void main(String[] args) {
+          int a=10, b01=2, b02=0,result=0;
+          result=a/b01;
+          System.out.println(result);
+          result=a/b02;
+          System.out.println(result);
+	}//main()
+ }
+
+배점: 20점
+
+5번 문제)  자바의 컬렉션 인터페이스
+배점 : 10점
+
