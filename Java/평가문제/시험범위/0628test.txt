@@ -1,0 +1,76 @@
+1.
+import java.util.ArrayList;
+import java.util.List;
+
+public class Ex2_1 {
+	public static void main(String[] args) {
+        List<String> nameList=new ArrayList<>();
+        nameList.add("seoul");
+        nameList.add("busan");
+
+        for(String obj:nameList){
+          String cityName=obj;
+          System.out.println(cityName.toUpperCase());
+        }
+	}
+}
+
+------------------------------------------
+
+2.
+
+class UserException extends Exception {
+	UserException(String str){
+		super(str);
+	}
+}
+
+
+public class Ex2_2{
+	public static void main(String[] args){
+		try{
+			int a=-10;
+
+			if(a<0) {
+				throw new UserException("양수가 아닙니다.!");
+			}
+		}catch(UserException e) {
+			System.out.println(e.getMessage());
+		}
+	}
+}
+
+
+----------------------------------------------
+
+3. 
+
+finally
+
+---------------------------------------------
+
+4.
+
+
+public class Ex3_1{
+	public static void main(String[] args){
+		
+		try {
+			int a=10, b01=2, b02=0,result=0;
+			result=a/b01;
+			System.out.println(result);
+			result=a/b02;
+			System.out.println(result);
+		}catch(ArithmeticException e) {
+			System.out.println("0으로 나눌 수 없습니다.");
+			System.out.println("오류: " + e.getMessage());
+		}
+	}//main()
+}
+
+
+---------------------------------------------
+
+5.
+
+Map 인터페이스
