@@ -1,0 +1,65 @@
+1. 
+
+CREATE TABLE guestbook(
+    g_no number(38) primary key,
+    g_name varchar2(50) not null,
+    g_title varchar2(200) not null,
+    g_cont varchar2(4000) not null,
+    g_date date null
+    );
+
+
+
+---------------------------------------
+2. 
+
+1. night13 테이블 스페이스명 생성
+create tablespace night13
+datafile 'C:\app\jmk\product\21c\oradata\XE\night13.dbf' size 200M;
+
+
+2. 오라클 11g 이전 방식으로 되돌려 주는 명령문 기술
+alter session set "_oracle_script"=true;
+
+
+3. night13 오라클 사용자와 비밀번호 night13 생성 기술
+create user night13
+identified by night13
+default tablespace night13
+quota unlimited on night13;
+
+
+4. grant 권한 부여
+grant connect, resource to night13;
+
+
+5. connect 명령어로 오라클 DB서버 접속
+connect night13/night13;
+
+
+ 6. show 명령어로 접속한 사용자 확인
+show user;
+---------------------------------------
+3.
+
+--emp 테이블 생성
+CREATE TABLE emp(
+    empno number(10) primary key, --사원번호
+    ename varchar2(50) not null, --사원명
+    sal number(38) not null, --월급
+    deptno number(10) null --부서번호
+    );
+
+
+--레코드 저장
+INSERT INTO emp VALUES(10, '홍길동', 2500, 10);
+INSERT INTO emp VALUES(11, '유관순', 3000, 10);
+
+--사원번호(empno) 기준 내림차순 정렬
+SELECT * FROM emp ORDER BY empno DESC;
+---------------------------------------
+4.
+
+DISTINCT
+---------------------------------------
+
