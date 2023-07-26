@@ -6,6 +6,12 @@
                 3. 파일 목록 보기 도스 명령어 기술
                 4. 생성된 night_os 폴더로 이동하는 명령어 기술
 
+
+ 1. cd c:\
+ 2. ed night_os
+ 3. dir /w
+ 4. 
+
  배점 : 25점 
 
 2번 문제) 테이블명: mem_addr 
@@ -18,12 +24,40 @@
 
 배점 : 25점
 
+
+
+2번) 
+
+1.
+create table mem_addr(
+mem_no number(38) primary key
+,mem_name(varchar2(20))
+, mem_phone(varchar2(24))
+, mem_email(varchar2(50))
+, mem_addr01(varchar2(20))
+,mem_addr02(varchar2(100))
+,mem_addr03(varchar2(50))
+);
+
+2.
+create sequence mem_no_seq
+start with 1
+increment by 1
+nocache;
+
+
+
+
+
 3번 문제) mem_addr테이블에 저장된 4번 레코드를 삭제하는 SQL문을 작성
 배점: 15점
+
+delete from mem_addr where mem_no=4;
 
 4번 문제) mem_addr테이블에 mem_no 컬럼에 저장된 3번 레코드의 mem_name 컬럼 이름 레코드를 ‘이순신’, mem_email 컬럼 메일 주소 레코드를 ‘leeshin@gmail.com'으로 
 수정하는 SQL문을 작성
 배점 : 15점
+
 
 5번 문제) CMD를 실행해서 ip주소,게이트웨이 등 네트워크 정보를 알아내는 명령어와 네트워크 연결 유무를 판단할 때 사용하는 명령어를 각각 차례대로 기술
 배점 : 10점
