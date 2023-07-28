@@ -1,0 +1,65 @@
+1.
+
+
+1. 드라이브 이동 도스 명령어
+cd c:\
+
+2. night_os 폴더 생성 도스 명령어
+mkdir night_os
+
+3. 파일 목록 보기 도스 명령어
+dir
+
+4. 생성된 night_os 폴더로 이동하는 명령어 
+cd night_os
+
+
+
+----------------------------------------------
+2.
+
+
+1. 테이블 생성문
+
+create table mem_addr(
+    mem_no number(38) primary key, --구분번호, mem_no_seq 시퀀스
+    mem_name varchar2(20), --이름
+    mem_phone varchar2(24), --폰번호
+    mem_email varchar2(50), --전자우편주소
+    mem_addr01 varchar2(20), --특별시(광역시), 도
+    mem_addr02 varchar2(100), --시, 구, 군, 동, 길, 번지
+    mem_addr03 varchar2(50) --나머지 주소
+    );
+
+2. 시퀀스 생성문
+
+create sequence mem_no_seq start with 1 increment by 1 nocache;
+----------------------------------------------
+3.
+
+
+delete from mem_addr where mem_no=4;
+----------------------------------------------
+4.
+
+
+update mem_addr 
+set mem_name='이순신', mem_email='leeshin@gmail.com'
+where mem_no=3;
+----------------------------------------------
+5.
+
+
+1. ip주소, 게이트웨이 등 네트워크 정보를 알아내는 명령어
+ipconfig
+
+2. 네트워크 연결 유무를 판단할 때 사용하는 명령어
+ping
+
+----------------------------------------------
+6.
+
+
+1. 컴퓨터 이름을 알아 내는 명령어
+set user
+----------------------------------------------
