@@ -1,0 +1,112 @@
+1번문제) div id 선택자명을 #box_shadow로 주고 폭을 500픽셀, 높이를 380픽셀, 바깥 상단 여백을 100픽셀, 레이아웃 테두리 선두께 1픽셀,실선,선색을 빨강으로 하고
+테두리를 둥글게,그림자 효과, 해당 레이아웃 수평 좌우 중앙정렬 되게 하는 css와 html를 작성. 그리고 '레이아웃 그리기 평가문제‘라는 본문 제목을 지정하는 h3태그를 작성하시고 
+타입 선택자로 해서 제목을 수평 좌우 중앙 정렬로 하는 css를 함께 기술
+
+작성 수행순서) 1. HTML 태그와 css 기술(layout_test.html)
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> </title> 
+<style>
+ #box_shadow{
+   width:500px; height:380px; margin-top:100px;
+   border:1px solid red; 
+   border-radius:15px;
+   box-shadow:10px 10px 10px gray;
+   margin-left:auto; margin-right:auto;
+ }
+ h3{
+   text-align:center; 
+ }
+</style>
+<body>
+<h3>레이아웃 그리기 평가문제</h3>
+<div id="box_shadow">
+ 레이아웃 영역.
+</div>
+</body>
+</html>
+
+배점 : 20점
+
+2번 문제) 구글에서 복숭아이미지를 검색하여 peach.png(jpg) 파일로 images 폴더에 다운. 
+그런다음 img태그로 복숭아 이미지를 적당한 사이즈로 하고,css 속성인 float을 사용해서 화면 왼쪽에 출력하시고, p문단 태그로 설정된 ‘복숭아는 맛있는 과일입니다.’ 라는 문자가 
+자연스럽게 복숭아 이미지 오른쪽에 배치되도록 하는 html,css 코드를 기술
+.
+작성 수행순서) 1. HTML 태그와 css 기술(peachlike.html)
+ <!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> </title> 
+<style>
+ .a{float:left;}
+</style>
+<body>
+<img class="a" src="./images/peach.jpg" width="150" height="150" alt="복숭아" />
+<p>복숭아는 맛있는 과일입니다.</p>
+</body>
+</html>
+
+배점 : 20점
+
+
+3번 문제) ui가 깨지는 것을 방지해 주는 css속성
+   정답 : clear:both;
+배점 : 10점 
+
+
+4번 문제)  UI 표준 및 지침을 반영하여, UI 요구 사항이 반영된 화면과 폼을 구현할 수 있어야 함. 
+div 태그와 float css속성을 사용하여 왼쪽 위 화면,오른쪽 위 화면,왼쪽 아래 화면,오른 쪽 아래 화면이 각각 레이아웃이 배치되는 HTML태그와 css를 기술.
+
+작성 수행순서) 1. HTML 태그와 css 기술(layoutTest3.html)
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title> </title> 
+<style>
+ #wrap{
+  width:500px; height:450px; border:1px solid blue;
+ }
+ #left_top{
+width:235px; height:210px; border:1px solid red; float:left;
+  margin:10px 0px 0px 10px;
+ }
+ #right_top{
+    width:235px; height:210px; border:1px solid red; float:left;  
+
+ margin:10px 0px 0px 10px;
+ }
+ #left_bottom{
+    width:235px; height:210px; border:1px solid red; float:left;
+    margin:10px 0px 0px 10px;
+ }
+ #right_bottom{
+    width:235px; height:210px; border:1px solid red; float:left;  
+    margin:10px 0px 0px 10px;
+ }
+</style>
+<body>
+ <div id="wrap">
+  <div id="left_top">왼쪽 위 화면</div>
+  <div id="right_top">오른쪽 위 화면</div>
+  <div id="left_bottom">왼쪽 아래 화면</div>
+  <div id="right_bottom">오른쪽 아래 화면</div>
+ </div>
+</body>
+</html>
+
+배점: 40점
+
+
+
+5번 문제) 하이퍼링크를 걸면 일반적으로 밑줄선이 만들어 집니다.  마우스 오버했을 때 어떤 css를 기술하면 밑줄선이 제거되어서 웹상에서 볼때 보기좋게 됩니다. 이 css가 무엇인지 기술하세요.
+
+답안: a:hover{
+          text-decoration:none;
+      }
+
+배점 : 10점
+
