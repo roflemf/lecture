@@ -1,0 +1,19 @@
+BoardController.java의 기능은 @Controller 애노테이션으로 설정해서 웹에서 인식가능하게 스프링컨트롤러로 등록된다.
+
+BoardService.java와 BoardServiceImpl.java의 기능은 @Service로 등록해서 스프링에서 서비스로 인식하게 해서 
+컨트롤러와 모델 DAO를 연결하는 중간 매개체 역할, 고객의 추가요구 사항 반영,스프링의 aop를 통한 트랜잭션 적용함으로서
+데이터 불일치 현상 제거이다.
+
+BoardDAO.java,BoardDAOImpl.java의 역할은 @Repository 애노테이션으로 설정해서 모델 DAO로 인식하게 해서
+mybatis의 board.xml에 설정된 유일 아이디명을 호출해서 쿼리문을 수행하게 한다.
+
+board.xml에는 원래 자바코드의 문자열로 처리된 sql문만 따로 java에서 분리해서 xml매퍼태그로 따로 
+관리하는 역할을 한다.즉 board.xml은 ORM mybatis에 해당된다.
+
+BoardController를 통해서 해당 뷰페이지로 이동하게 한다.
+
+
+
+BoardController.java => BoardService.java => BoardServiceImpl.java => BoardDAO.java => BoardDAOImpl.java => board.xml
+      ↓
+/WEB-INF/views/board/board_list.jsp
