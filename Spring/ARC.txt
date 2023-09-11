@@ -1,0 +1,29 @@
+ARC
+
+
+http://localhost:8092/controller/replies/reply_add
+
+http://localhost:8092/controller/replies/all/13
+POST 방식  JSON
+{
+  "bno" : "13",
+  "replyer" : "홍길동",
+  "replytext": "댓글 내용입니다"
+
+}
+
+http://localhost:8092/controller/replies/6
+PUT방식
+{
+  "replytext" : "댓글 내용을 수정합니다"
+}
+
+
+
+
+삭제
+http://localhost:8092/controller/replies/4
+DELETE방식
+
+
+sql devel 에서 삭제된것 확인
