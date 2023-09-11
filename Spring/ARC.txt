@@ -21,9 +21,5 @@ PUT방식
 
 
 
-삭제
+DELETE
 http://localhost:8092/controller/replies/4
-DELETE방식
-
-
-sql devel 에서 삭제된것 확인
