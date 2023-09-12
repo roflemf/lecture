@@ -1,0 +1,66 @@
+
+
+<!--search bar 시작-->
+
+        <form onsubmit="event.preventDefault()" class="d-flex justify-content-center">
+            <input class="form-control me-2 w-25  justify-content-center" type="search" placeholder="Search"
+                aria-label="Search">
+            <button class="btn btn-secondary" type="submit">Search</button>
+        </form>
+
+<!--search bar끝-->
+
+
+
+
+<!--Main 네비게이션바 시작-->
+        <style>
+            #navbarColor02 ul li {
+                margin: 0 25px;
+                /* 원하는 간격으로 조정 */
+            }
+        </style>
+
+        <nav class="navbar navbar-expand-lg bg-light" id="guidenav">
+            <div class="container">
+                <div class="d-flex align-items-center">
+                    <a class="navbar-brand" href="#" data-abc="true"> <strong>구매 GUIDE</strong></a>
+                </div>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor02"
+                    aria-controls="navbarColor02" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-center" id="navbarColor02">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="guide.html" data-abc="true">전체 <span
+                                    class="visually-hidden">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="digital_IT.html" data-abc="true">디지털 IT</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-abc="true">생활가전</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" data-abc="true">주방가전</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                Dropdown
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="#">Action</a></li>
+                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!--Main 네비게이션바 끝-->

@@ -1,0 +1,19 @@
+ARC
+http://localhost:8092/controller/message/message_insert
+POST
+
+{
+  "targetid" : "user01",
+  "sender" : "user01",
+  "message" : "보낸 메세지"
+}
+
+SQL 확인 사항
+
+select * from tbl_message order by mid asc;
+메세지 send 된 것 확인
+select * from tbl_user order by uid2 asc;
+포인트 추가 된 것 확인
+
+Transaction 적용시 
+하나 실패시 두개다 rollback;

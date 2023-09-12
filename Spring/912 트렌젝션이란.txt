@@ -1,0 +1,12 @@
+  트렌젝션
+
+하나이상의 쿼리문 실행될때 논리적 단위로 묶기
+하나 실패하면 다른하나도 rollback문이 만들어짐
+
+insert update 문 실행시 하나실패하면 rollback
+
+
+ Aspect J
+
+관점지향AOP 실행 문법
+AOP 에 쓰는 코드가 AspectJ 문법
